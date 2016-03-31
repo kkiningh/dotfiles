@@ -1,0 +1,3 @@
+# ignore undofiles
+dotfiles/.vim/undodir
+dotfiles/.vim/.netrwhist
