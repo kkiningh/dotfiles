@@ -12,6 +12,10 @@ link() {
 }
 
 # We use find instead of globing for no real reason :)
-for file in $(find "$dotfiles" -name '.*' -maxdepth 1); do
-    link "~/$(basename $file)" "$file"
+for file in $(find "$dotfiles" -maxdepth 1 -name '.*'); do
+    symlink=~/"$(basename "$file")"
+
+    rm -rf "$symlink"
+    echo "Linking '$symlink' -> '$file'"
+    ln -s "$file" "$symlink"
 done
